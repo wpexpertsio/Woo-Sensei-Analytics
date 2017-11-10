@@ -64,7 +64,19 @@ function wsa_dashboard_sensei_charts() {
 
     do_action('wsa_before_graphs');
 
+    $default_settings = array(
+		'hide_info_labels' => 0,
+		'show_3d_charts' => 0,
+		'active_course' => 1,
+		'complete_course' => 1,
+		'graded_ungraded' => 1,
+		'failure_courses' => 1,
+		'enrolled_months' => 1,
+	);
+
     $settings = get_option('woothemes-sensei-settings');
+
+	$settings = array_merge( $default_settings, $settings );
 
     if($settings['hide_info_labels'] == 0)
         $legend = 'labeled';
