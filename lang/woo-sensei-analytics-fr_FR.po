@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Woo Sensei Analytics\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/WordPress-Plugin-Template\n"
 "POT-Creation-Date: 2017-11-15 16:57+0100\n"
-"PO-Revision-Date: 2017-11-15 16:59+0100\n"
+"PO-Revision-Date: 2017-11-15 17:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: Open-DSI <info@open-dsi.fr>\n"
 "Language: fr_FR\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: includes/class-wsa-charts.php:36
 msgid "Total Enrolled Students"
-msgstr "Total d'Élèves Inscrits"
+msgstr "Total Élèves Inscrits"
 
 #: includes/class-wsa-charts.php:67 includes/class-wsa-charts.php:204
 msgid "Total Learners"

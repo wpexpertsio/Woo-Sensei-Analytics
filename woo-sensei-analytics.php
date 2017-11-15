@@ -26,7 +26,7 @@ add_action( 'init', 'wsa_load_localisation' );
 
 function wsa_load_localisation() {
 
-	load_plugin_textdomain( 'woo-sensei-analytics', false, plugin_dir_path( __FILE__ ) . '/lang/' );
+	load_plugin_textdomain( 'woo-sensei-analytics', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 }
 
 

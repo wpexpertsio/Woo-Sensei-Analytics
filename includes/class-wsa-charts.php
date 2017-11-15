@@ -1,5 +1,5 @@
 <?php
-
+// TODO: use wp_json_encode for every string passed to JS!
 class WSA_Charts {
 
 	public function sensei_active_courses( $chart_content, $title, $colors, $legend, $is_3d ) {
