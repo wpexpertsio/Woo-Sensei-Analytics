@@ -180,10 +180,11 @@ function wsa_dashboard_sensei_charts() {
 
 	if ( $settings['enrolled_months'] == 1 ) {
 
-		echo $wsa_charts->sensei_enrolled_user_by_month(
+		echo $wsa_charts->sensei_enrolled_students_by_month(
 			'monthly_enrolled',
 			__( 'Enrolled Students by Month', 'woo-sensei-analytics' ),
-			"['orange', 'pink','lightgreen']"
+			__( 'Month', 'woo-sensei-analytics' ),
+			__( 'Enrolled Students', 'woo-sensei-analytics' )
 		); ?>
 
 		<div id="monthly_enrolled" style="float:left"></div> <?php

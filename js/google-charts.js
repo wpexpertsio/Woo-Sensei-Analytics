@@ -32,7 +32,7 @@ function wsa_create_chart(data_array, chart_content, title, colors , legend, is_
     }
 }
 
-function wsa_create_line_chart(data_array, chart_content, title) {
+function wsa_create_line_chart(data_array, chart_content, title, xlabel, ylabel) {
 
     google.charts.setOnLoadCallback(drawChart)
 
@@ -40,15 +40,15 @@ function wsa_create_line_chart(data_array, chart_content, title) {
         var chartDiv = document.getElementById('monthly_enrolled');
 
         var data = new google.visualization.DataTable();
-        data.addColumn('date', 'Month');
-        data.addColumn('number', "Enrolled Students");
+        data.addColumn('date', xlabel);
+        data.addColumn('number', ylabel);
         data.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}})
 
         data.addRows( data_array );
 
         var materialOptions = {
             chart: {
-                title: 'Enrolled Students by Month'
+                title: title
             },
             width: 1000,
             height: 300,
@@ -59,7 +59,7 @@ function wsa_create_line_chart(data_array, chart_content, title) {
             axes: {
                 // Adds labels to each axis; they don't have to match the axis names.
                 y: {
-                    Time: {label: 'Enrolled Students'}
+                    Time: {label: ylabel}
                 }
             }
         };

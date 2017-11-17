@@ -1,9 +1,7 @@
 <?php
 // TODO: use wp_json_encode for every string passed to JS!
 class WSA_Charts {
-
 	public function sensei_active_courses( $chart_content, $title, $colors, $legend, $is_3d ) {
-
 		$args = array(
 			'posts_per_page'   => -1,
 			'post_status'      => 'publish',
@@ -33,20 +31,19 @@ class WSA_Charts {
 
 				$course_learners = WooThemes_Sensei_Utils::sensei_check_for_activity( $activity_args, false );
 
-				echo "['$post->post_title', { v:$course_learners, f: '" . __( 'Total Enrolled Students', 'woo-sensei-analytics' ) . ": '+$course_learners}],";
+				echo "['$post->post_title', { v:$course_learners, f: '".__( 'Total Enrolled Students', 'woo-sensei-analytics' ).": '+$course_learners}],";
 
 			endforeach;
 
 			wp_reset_postdata();
 			?>];
 
-			wsa_create_chart(person,'<?php echo $chart_content?>', '<?php echo $title?>', <?php echo $colors ?>, '<?php echo $legend ?>', '<?php echo $is_3d ?>'); // Display Chart.
+			wsa_create_chart(person,'<?php echo $chart_content; ?>', '<?php echo $title; ?>', <?php echo $colors; ?>, '<?php echo $legend; ?>', '<?php echo $is_3d; ?>'); // Display Chart.
 		</script>
 		<?php
 	}
 
 	public function sensei_completed_courses( $chart_content, $title, $colors, $legend, $is_3d ) {
-
 		global $wpdb;
 
 		$complete_courses = $wpdb->get_results( "SELECT DISTINCT (`comment_post_ID`) FROM $wpdb->comments WHERE `comment_type` = 'sensei_course_status' AND `comment_approved` = 'complete'", OBJECT ); ?>
@@ -61,10 +58,9 @@ class WSA_Charts {
 				$learners_counts = $wpdb->get_results( "SELECT count(`user_id`) as 'user_id' FROM $wpdb->comments WHERE `comment_type` = 'sensei_course_status' AND `comment_approved` = 'complete' AND `comment_post_ID` = $complete_course->comment_post_ID", OBJECT );
 
 				foreach ( $learners_counts as $learners_count ) {
-
 					$learners = $learners_count->user_id;
 
-					echo  "['$course_title',{ v: $learners, f: '" . __( 'Total Learners', 'woo-sensei-analytics' ) . ": $learners' }],";
+					echo  "['$course_title',{ v: $learners, f: '".__( 'Total Learners', 'woo-sensei-analytics' ).": $learners' }],";
 				}
 
 			endforeach;
@@ -72,13 +68,12 @@ class WSA_Charts {
 			wp_reset_postdata();
 			?>];
 
-			wsa_create_chart( person, '<?php echo $chart_content?>', '<?php echo $title?>', <?php echo $colors ?>, '<?php echo $legend ?>', '<?php echo $is_3d ?>' ); // Display Chart.
+			wsa_create_chart( person, '<?php echo $chart_content; ?>', '<?php echo $title; ?>', <?php echo $colors; ?>, '<?php echo $legend; ?>', '<?php echo $is_3d; ?>' ); // Display Chart.
 		</script>
 		<?php
 	}
 
 	public function sensei_lesson_graded( $chart_content, $title, $colors, $legend, $is_3d ) {
-
 		global $wpdb;
 
 		$lesson_count_graded = array();
@@ -98,7 +93,7 @@ class WSA_Charts {
 
 				$lesson_ungraded_names = $wpdb->get_results( "SELECT DISTINCT(`comment_post_ID`) FROM $wpdb->comments WHERE `comment_type` = 'sensei_lesson_status' AND `comment_approved` = 'ungraded'", OBJECT );
 
-				echo  "['" . __( 'Ungraded', 'woo-sensei-analytics' ) . "', { v: $lesson_ungrade->total_ungraded, f: '" . __( 'Lessons', 'woo-sensei-analytics' ) . ':';
+				echo  "['".__( 'Ungraded', 'woo-sensei-analytics' )."', { v: $lesson_ungrade->total_ungraded, f: '".__( 'Lessons', 'woo-sensei-analytics' ).':';
 
 				foreach ( $lesson_ungraded_names as $lesson_ungraded_name) { ?> \n <?php
 
@@ -108,7 +103,7 @@ class WSA_Charts {
 						$lesson_count_ungraded[] = $lesson_count->lesson_ungraded_count;
 					}
 
-					echo " " . $counter_un++ . '. ' . get_the_title( $lesson_ungraded_name->comment_post_ID ) . ' ('.$lesson_count_ungraded[$counter_un-2] . ')' . "";
+					echo " ".$counter_un++.'. '.get_the_title( $lesson_ungraded_name->comment_post_ID ).' ('.$lesson_count_ungraded[$counter_un-2].')'."";
 				}
 
 				echo  "' } ],";
@@ -123,7 +118,7 @@ class WSA_Charts {
 
 				$lesson_graded_names = $wpdb->get_results( "SELECT DISTINCT(`comment_post_ID`) FROM $wpdb->comments WHERE `comment_type` = 'sensei_lesson_status' AND `comment_approved` = 'passed'", OBJECT );
 
-				echo  "['" . __( 'Graded', 'woo-sensei-analytics' ) . "', { v: $lesson_grade->total_graded, f: '" . __( 'Lessons', 'woo-sensei-analytics' ) . ':';
+				echo  "['".__( 'Graded', 'woo-sensei-analytics' )."', { v: $lesson_grade->total_graded, f: '".__( 'Lessons', 'woo-sensei-analytics' ).':';
 
 				foreach ( $lesson_graded_names as $lesson_graded_name ) { ?> \n <?php
 
@@ -133,7 +128,7 @@ class WSA_Charts {
 						$lesson_count_graded[] = $lesson_count->lesson_graded_count;
 					}
 
-					echo " " . $counter++ . '. ' . get_the_title( $lesson_graded_name->comment_post_ID ) . ' ('. $lesson_count_graded[ $counter - 2 ] . ')' . "";
+					echo " ".$counter++.'. '.get_the_title( $lesson_graded_name->comment_post_ID ).' ('.$lesson_count_graded[ $counter - 2 ].')'."";
 				}
 
 				echo  "' } ],";
@@ -143,13 +138,12 @@ class WSA_Charts {
 			wp_reset_postdata();
 
 			?>];
-			wsa_create_chart( person, '<?php echo $chart_content?>', '<?php echo $title?>', <?php echo $colors ?> , '<?php echo $legend ?>', '<?php echo $is_3d ?>' ); // Display Chart
+			wsa_create_chart( person, '<?php echo $chart_content; ?>', '<?php echo $title; ?>', <?php echo $colors; ?> , '<?php echo $legend; ?>', '<?php echo $is_3d; ?>' ); // Display Chart
 		</script>
 		<?php
 	}
 
-	public function sensei_enrolled_user_by_month( $chart_content, $title, $colors ) {
-
+	public function sensei_enrolled_students_by_month( $chart_content, $title, $xaxis, $yaxis ) {
 		global $wpdb;
 
 		$user_registration = $wpdb->get_results( "SELECT DISTINCT(DATE(user_registered)) as 'user_registered' FROM $wpdb->users order by `user_registered` ASC", OBJECT );
@@ -167,7 +161,7 @@ class WSA_Charts {
 				$enrolled_count = $wpdb->get_results( "SELECT count(`user_registered`) as 'user_registered_count' FROM $wpdb->users WHERE `user_registered` LIKE '%$month%'", OBJECT );
 
 				foreach ( $enrolled_count as $enrolled_counts ) {
-				   ?> [new Date(<?php echo $year?>, <?php echo $month ?> ), <?php echo $enrolled_counts->user_registered_count ?>,'Test'],<?php
+				   ?> [new Date(<?php echo $year; ?>, <?php echo $month; ?> ), <?php echo $enrolled_counts->user_registered_count; ?>,'Test'],<?php
 					$cc++;
 				}
 			}
@@ -175,13 +169,12 @@ class WSA_Charts {
 		</script>
 
 		<script type="text/javascript">
-			wsa_create_line_chart( line_chart, '<?php echo $chart_content?>', '<?php echo $title?>', <?php echo $colors ?> ); // Display Chart.
+			wsa_create_line_chart( line_chart, '<?php echo $chart_content; ?>', '<?php echo $title; ?>', '<?php echo $xaxis; ?>', '<?php echo $yaxis; ?>' ); // Display Chart.
 		</script>
 	<?php
 	}
 
 	public function sensei_failed_lessons( $chart_content, $title, $colors, $legend, $is_3d ) {
-
 		global $wpdb;
 
 		$user_failed_courses = $wpdb->get_results( "SELECT DISTINCT(`comment_post_ID`) FROM $wpdb->comments WHERE `comment_type` = 'sensei_lesson_status' AND `comment_approved` = 'failed'", OBJECT );
@@ -192,7 +185,6 @@ class WSA_Charts {
 			echo "['Task2', 'Hou2rs per Day'],";
 
 			foreach ( $user_failed_courses as $user_failed ) {
-
 				$lesson_ID = $user_failed->comment_post_ID;
 
 				$failed_users = $wpdb->get_results( "SELECT count(`user_id`) as 'users' FROM $wpdb->comments WHERE `comment_type` = 'sensei_lesson_status' AND `comment_approved` = 'failed' AND `comment_post_ID` = $lesson_ID", OBJECT );
@@ -201,7 +193,7 @@ class WSA_Charts {
 
 				foreach ( $failed_users as $users ) {
 					?>
-					['<?php echo get_the_title( $lesson_ID )?>',{ v: <?php echo $users->users ?>, f: 'Course: <?php echo get_the_title( $CourseTitle) ?> \n <?php echo __( 'Total Learners', 'woo-sensei-analytics' ) . $users->users; ?>\n' } ],
+					['<?php echo get_the_title( $lesson_ID ); ?>',{ v: <?php echo $users->users; ?>, f: 'Course: <?php echo get_the_title( $CourseTitle); ?> \n <?php echo __( 'Total Learners', 'woo-sensei-analytics' ).$users->users; ?>\n' } ],
 					<?php
 				}
 		}
@@ -210,7 +202,7 @@ class WSA_Charts {
 		</script>
 
 		<script type="text/javascript">
-			wsa_create_chart( users, '<?php echo $chart_content?>', '<?php echo $title?>', <?php echo $colors ?>, '<?php echo $legend ?>', '<?php echo $is_3d ?>' ); // Display Chart.
+			wsa_create_chart( users, '<?php echo $chart_content; ?>', '<?php echo $title; ?>', <?php echo $colors; ?>, '<?php echo $legend; ?>', '<?php echo $is_3d; ?>' ); // Display Chart.
 		</script>
 	<?php
 	}
@@ -234,11 +226,11 @@ class WSA_Charts {
 			echo "['Task2', 'Hou2rs per Day'],";
 
 			foreach ( $most_sell_courses as $most_sell ) { ?>
-					['<?php echo get_the_title( $most_sell->post_id ); ?>', { v: <?php echo $most_sell->meta_value; ?> , f: '<?php echo __( 'Total Sold', 'woo-sensei-analytics' ) . ': ' . $most_sell->meta_value ?>' }],
+					['<?php echo get_the_title( $most_sell->post_id ); ?>', { v: <?php echo $most_sell->meta_value; ?> , f: '<?php echo __( 'Total Sold', 'woo-sensei-analytics' ).': '.$most_sell->meta_value; ?>' }],
 				<?php } ?>
 
 				]
-			wsa_create_chart( users, '<?php echo $chart_content?>', '<?php echo $title?>', <?php echo $colors ?>, '<?php echo $legend ?>', '<?php echo $is_3d ?>' ); // Display Chart.
+			wsa_create_chart( users, '<?php echo $chart_content; ?>', '<?php echo $title; ?>', <?php echo $colors; ?>, '<?php echo $legend; ?>', '<?php echo $is_3d; ?>' ); // Display Chart.
 		</script>
 		<?php
 	}
