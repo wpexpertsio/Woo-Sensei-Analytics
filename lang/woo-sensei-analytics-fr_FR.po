@@ -1,0 +1,118 @@
+# Copyright (C) 2014 Course Session For Sensei
+# This file is distributed under the same license as the Course Session For Sensei package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo Sensei Analytics\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/WordPress-Plugin-Template\n"
+"POT-Creation-Date: 2017-11-17 09:30+0100\n"
+"PO-Revision-Date: 2017-11-17 09:30+0100\n"
+"Last-Translator: \n"
+"Language-Team: Open-DSI <info@open-dsi.fr>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;_x;esc_attr_e\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: includes/class-wsa-charts.php:34
+msgid "Total Enrolled Students"
+msgstr "Total Élèves Inscrits"
+
+#: includes/class-wsa-charts.php:63 includes/class-wsa-charts.php:196
+msgid "Total Learners"
+msgstr "Total Élèves"
+
+#: includes/class-wsa-charts.php:96
+msgid "Ungraded"
+msgstr "Non noté"
+
+#: includes/class-wsa-charts.php:96 includes/class-wsa-charts.php:121
+msgid "Lessons"
+msgstr "Leçons"
+
+#: includes/class-wsa-charts.php:121
+msgid "Graded"
+msgstr "Noté"
+
+#: includes/class-wsa-charts.php:229
+msgid "Total Sold"
+msgstr "Total Vendu"
+
+#: woo-sensei-analytics.php:41
+msgid ""
+"Sensei plugin not activated or installed. Please install the Sensei plugin "
+"<b> - `Woo Sensei Analytics` deactivated </b>"
+msgstr ""
+"Le plugin Sensei n'est pas activé ou installé. Merci de bien vouloir "
+"installer le plugin Sensei."
+
+#: woo-sensei-analytics.php:75
+msgid "Woo Sensei Analytics"
+msgstr "Statistiques Woo Sensei"
+
+#: woo-sensei-analytics.php:120 woo-sensei-analytics.php:231
+msgid "Active Courses"
+msgstr "Cours Actifs"
+
+#: woo-sensei-analytics.php:133 woo-sensei-analytics.php:240
+msgid "Completed Courses"
+msgstr "Cours Complétés"
+
+#: woo-sensei-analytics.php:146 woo-sensei-analytics.php:249
+msgid "Graded / Ungraded Lessons"
+msgstr "Leçons notées / non-notées"
+
+#: woo-sensei-analytics.php:159 woo-sensei-analytics.php:258
+msgid "Failed Lessons"
+msgstr "Échec des Leçons"
+
+#: woo-sensei-analytics.php:172 woo-sensei-analytics.php:267
+msgid "Purchased Courses"
+msgstr "Cours Achetés"
+
+#: woo-sensei-analytics.php:185 woo-sensei-analytics.php:276
+msgid "Enrolled Students by Month"
+msgstr "Élèves Inscrits par Mois"
+
+#: woo-sensei-analytics.php:186
+msgid "Month"
+msgstr "Mois"
+
+#: woo-sensei-analytics.php:187
+msgid "Enrolled Students"
+msgstr "Élèves Inscrits"
+
+#: woo-sensei-analytics.php:219
+msgid "Analytics"
+msgstr "Statistiques"
+
+#: woo-sensei-analytics.php:220
+msgid "Woo Sensei Analytics plugin charts settings."
+msgstr "Paramètres des graphiques du plugin Statistiques Woo Sensei."
+
+#: woo-sensei-analytics.php:232 woo-sensei-analytics.php:241
+#: woo-sensei-analytics.php:250 woo-sensei-analytics.php:259
+#: woo-sensei-analytics.php:268 woo-sensei-analytics.php:277
+msgid "Enable"
+msgstr "Activer"
+
+#: woo-sensei-analytics.php:285
+msgid "Hide Labels"
+msgstr "Cacher les Étiquettes"
+
+#: woo-sensei-analytics.php:286 woo-sensei-analytics.php:295
+msgid "Yes"
+msgstr "Oui"
+
+#: woo-sensei-analytics.php:294
+msgid "Show 3D Charts"
+msgstr "Afficher les Graphiques en 3D"
+
+#~ msgid "Failures per Lesson"
+#~ msgstr "Échecs par Leçon"
