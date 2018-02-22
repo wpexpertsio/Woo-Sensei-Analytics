@@ -1,7 +1,7 @@
 <?php
 /*
 * Plugin Name: Woo Sensei Analytics
-* Version: 1.2.0
+* Version: 1.3.0
 * Plugin URI: http://www.wpexperts.io/
 * Description: Display Sensei Analytics
 * Author: wpexpertsio

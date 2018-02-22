@@ -2,15 +2,17 @@
 Contributors: wpexpertsio
 Tags: woo sensei analytics, sensei analytics, sensei statistics
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=pay@objects.ws&item_name=Donation For Plugin
-Requires at least: 4.0
-Tested up to: 4.5.3
-Stable tag: 1.2.0
+Requires at least: 4.5
+Tested up to: 4.9.2
+Stable tag: 1.3.0
 License: GPLv2
 License URI: GPLv2
 
 == Description ==
 Woo Sensei Analytics provide you with an instant analysis with the help of graphs right in your dashboard. so that's is easy for the sensei users to view the current status of their Learning Management System.
 
+**Interested in contributing to Woo Sensei Analytics**	
+Head over to the [Woo Sensei Analytics **GitHub Repository**](https://github.com/wpexpertsio/Woo-Sensei-Analytics) to find out how you can pitch in ;)
 
 == Installation ==
 To add a WordPress Plugin using the built-in plugin installer:
@@ -33,6 +35,8 @@ Just after installing Woo Sensei Analytics, You can use any of the provided shor
 2. Woo Sensei Analytics backend settings
 
 == Changelog ==
+= 1.3.0 =
+- Bug fix for prefix statice prefixe error solved to daynamic prefixe.
 
 = 1.2.0 =
 - Bug fix for checking if Sensie is active reported by @burlesonbrad.
