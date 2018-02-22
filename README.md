@@ -21,7 +21,8 @@ If successful, click Activate Plugin to activate it, or Return to Plugin Install
 - Just after installing Woo Sensei Analytics, You can use any of the provided shortcodes by WOO Sensei Shortcodes
 
 ## Changelog
-
+**1.3**
+- Bug fix for prefix statice prefixe error solved to daynamic prefixe.
 **1.2.0**
 
 - Bug fix for checking if Sensie is active reported by @burlesonbrad.
